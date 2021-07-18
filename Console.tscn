@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://Panel.gd" type="Script" id=2]
+[ext_resource path="res://Upgrade Button.gd" type="Script" id=3]
+
+[node name="Console" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 320.0 ],
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 1008.0
+margin_bottom = 584.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="Panel"]
+margin_left = 304.0
+margin_top = 32.0
+margin_right = 688.0
+margin_bottom = 112.0
+text = "0"
+align = 1
+valign = 1
+
+[node name="Main Button" type="Button" parent="Panel"]
+margin_left = 304.0
+margin_top = 240.0
+margin_right = 688.0
+margin_bottom = 368.0
+text = "click - 1"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Upgrade Button" type="Button" parent="Panel"]
+margin_left = 784.0
+margin_top = 280.0
+margin_right = 912.0
+margin_bottom = 328.0
+disabled = true
+text = "upgrade - 5"
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Panel/Main Button" to="Panel" method="_on_Button_pressed"]
+[connection signal="pressed" from="Panel/Upgrade Button" to="Panel" method="_on_Upgrade_Button_pressed"]
